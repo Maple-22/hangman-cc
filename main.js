@@ -2,7 +2,7 @@
 // --------------------------------------------------------------
 
 // Array of Word Options (all lowercase)
-var wordsList = ["tesla", "ferrari", "mercedes"];
+var wordsList = ["My Hero Academia", "One Punch Man", "Dragin Ball Z"];
 
 // Solution will be held here
 var chosenWord = "";
@@ -70,7 +70,7 @@ function startGame() {
     document.getElementById("word-blanks").innerHTML = blanksAndSuccesses.join(" ");
 
     // Clears the wrong guesses from the previous round
-    document.getElementById.("wrong-guesses").innerHTML = wrongGuesses.join(" ");
+    document.getElementById("wrong-guesses").innerHTML = wrongGuesses.join(" ");
  
 }
 
@@ -80,7 +80,7 @@ function checkLetters(letter) {
     //This boolean will be toggled based on whether or not a user letter is found in the word
     var letterInWord = false;
 
-    // Chekck if a letter exists inside the array at all
+    // Check if a letter exists inside the array at all
     for (var i = 0; i < numBlanks; i++) {
 
         if (chosenWord[i] === letter) {
@@ -133,7 +133,7 @@ function roundComplete() {
     document.getElementById("guesses-left").innerHTML = numGuesses;
 
     // This will print the wrong guesses onto the page
-    document.getElementById("word-blank").innerHTML = blanksAndSuccesses.join(" ");
+    document.getElementById("word-blanks").innerHTML = blanksAndSuccesses.join(" ");
 
     // This will print the wrong guesses onto the page
     document.getElementById("wrong-guesses").innerHTML = wrongGuesses.join(" ");
@@ -169,3 +169,23 @@ function roundComplete() {
 
 }
 
+
+// MAIN PROCESS (This is the code that controls what is actually run)
+// ---------------------------------------------------------------------------
+
+// Starts the Game
+startGame();
+
+// Initiate the function for capturing key clicks
+document.onkeyup = function(event) {
+
+    // Converts all key clicks to lowercase letters
+    var letterGuessed = String.fromCharCode(event.keyCode).toLowerCase();
+
+    // Runs the code to check for correctness
+    checkLetters(letterGuessed);
+
+    // Runs the code after each round is done
+    roundComplete();
+
+};
