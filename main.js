@@ -2,7 +2,7 @@
 // --------------------------------------------------------------
 
 // Array of Word Options (all lowercase)
-var wordsList = ["My Hero Academia", "One Punch Man", "Dragin Ball Z"];
+var wordsList = ["onepiece", "hunterxhunter", "swordartonline"];
 
 // Solution will be held here
 var chosenWord = "";
